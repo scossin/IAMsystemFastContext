@@ -6,7 +6,6 @@ import fr.erias.IAMsystem.detect.DetectOutput;
 import fr.erias.IAMsystem.detect.TermDetector;
 import fr.erias.IAMsystem.exceptions.UnfoundTokenInSentence;
 import fr.erias.IAMsystem.normalizer.Normalizer;
-import fr.erias.IAMsystem.tokenizer.Tokenizer;
 
 
 public class Example {
@@ -15,16 +14,12 @@ public class Example {
 		/********************************* load IAMsystem ***************************/
 		TermDetector termDetector = new TermDetector();
 
-		// change the default normalizer and tokenizer if you need:
+		// change the default normalizer. 
+		// By default it removes all character except "[^a-z0-9]" after normalization (lowercase and accents removals)
 		// Normalizer:
 		Normalizer normalizer = new Normalizer(termDetector.getStopwords());
-		normalizer.setRegexNormalizer("[^A-Za-z0-9µ+-]"); // default [^A-Za-z0-9µ]
+		normalizer.setRegexNormalizer("[^a-z0-9+-]"); // keep + and - sign too
 		termDetector.getTokenizerNormalizer().setNormalizer(normalizer);
-
-		// Tokenizer:
-		Tokenizer tokenizer = new Tokenizer();
-		tokenizer.setPattern("[0-9]+|[a-z]+|\\+"); // default "[0-9]+|[a-z]+";
-		termDetector.getTokenizerNormalizer().setTokenizer(tokenizer);
 
 		// add abbreviations
 		termDetector.addAbbreviations("positive", "+");
