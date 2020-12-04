@@ -4,7 +4,7 @@ It combines [IAMsystem](https://github.com/scossin/IAMsystem) (dictionary look-u
 
 ## Getting started
 
-To build it, you will need Java 1.8 (or higher) JDK a recent version of Maven (https://maven.apache.org/download.cgi) and put the `mvn` command on your path. Now you can run `mvn clean install` in the IAMsystem folder to compile the project. 
+To build it, you will need Java 1.8 (or higher) JDK a recent version of Maven (https://maven.apache.org/download.cgi) and put the `mvn` command on your path. Now you can run `mvn clean install` to compile the project. 
 
 then add to your pom: 
 
@@ -19,7 +19,7 @@ then add to your pom:
 ## FastContext Rules
 
 See the 'Example.java' for an example.  
-You need to add a file of FastContext rules but this repository doesn't contain any.   
+You need a file containing FastContext rules but this repository doesn't contain any.   
 
 English rules for FastContext are available here: https://github.com/jianlins/FastContext/blob/master/conf/context.txt
 
